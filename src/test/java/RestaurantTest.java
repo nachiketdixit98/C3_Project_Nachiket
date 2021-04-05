@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class RestaurantTest {
 
-    Restaurant restaurant ;
+    Restaurant restaurant = mock(Restaurant.class);
 
     @BeforeEach
     public void setup(){
