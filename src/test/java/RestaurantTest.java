@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class RestaurantTest {
-    
+
     Restaurant restaurant ;
 
     @BeforeEach
@@ -52,6 +52,18 @@ class RestaurantTest {
         when(restaurant.getCurrentTime()).thenReturn(time);
 
         assertEquals(false,restaurant.isRestaurantOpen());
+
+    }
+
+    @Test
+    public void getTotalCost_should_return_sum_total_cost_of_items_selected(){
+
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        List<String> selectedItems = new ArrayList<>();
+        selectedItems.add("Sweet corn soup");
+
+        assertEquals(119.0,restaurant.getTotalCost(selectedItems));
 
     }
 
